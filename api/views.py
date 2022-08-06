@@ -10,3 +10,9 @@ class PessoaViewSet(viewsets.ModelViewSet):
     queryset = Pessoa.objects.all().order_by('nome_completo')
     serializer_class = PessoaSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        pessoas = super().get_queryset()
+        pessoas = pessoas.filter(usuario=self.request.user)
+        return pessoas
+    
