@@ -11,6 +11,7 @@
             <th>Nome</th>
             <th>Data de nascimento</th>
             <th>Ativa</th>
+            <th>Imagem</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -25,6 +26,13 @@
             {% else %}
             Não
             {% endif %}
+            </td>
+            <td>
+                {% if pessoa.image %}
+                <a href="{{ pessoa.image.url }}" target="_blank">
+                    <img src="{{ pessoa.image.url }}" width="100">
+                </a>
+                {% endif %}
             </td>
             <td>
                 <a href="{% url 'pessoa.editar' pessoa.pk %}">Editar</a>

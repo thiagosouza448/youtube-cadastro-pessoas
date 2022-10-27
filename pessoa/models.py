@@ -7,6 +7,7 @@ class Pessoa(models.Model):
     data_nascimento = models.DateField(null=True)
     ativa = models.BooleanField(default=True)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='images/', null=True)
 
     def __str__(self) -> str:
         return self.nome_completo
